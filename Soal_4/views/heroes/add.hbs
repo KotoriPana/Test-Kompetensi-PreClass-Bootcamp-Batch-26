@@ -1,0 +1,59 @@
+{{> head}}
+{{> navbar}}
+
+{{#if message}}
+  <div class="alert alert-{{message.type}}" role="alert">
+    {{message.message}}
+  </div>
+{{/if}}
+
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Add Heroes</h4>
+            </div>
+            <div class="card-body">
+              <form action="" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Name</label>
+                      <input type="text" class="form-control" name="name">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Type</label>
+                      <select name="type_id" id="type_id" class="form-control" >
+                        <option value="..." disabled>Select type...</option>
+                        {{#each types}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                  </div>
+                </div>               
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="file-input-group text-start">
+                            <input type="file" hidden id="file" aria-label="file upload" name="photo" onchange="">
+                            <label for="file" class="btn btn-primary">Attach Photo <i class="material-icons">attach_file</i></label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">Add Heroes</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+
+  {{> footer}}

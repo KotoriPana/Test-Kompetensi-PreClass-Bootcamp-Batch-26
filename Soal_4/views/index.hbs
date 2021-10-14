@@ -1,0 +1,65 @@
+{{> head}}
+{{> navbar}}
+
+{{#if message}}
+  <div class="alert alert-{{message.type}}" role="alert">
+    {{message.message}}
+  </div>
+{{/if}}
+
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('/static/images/main.png')">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="brand text-center">
+            <h1>Welcome to Fire Emblem Heroes Wiki</h1>
+            <h3 class="title text-center"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="container">
+      <div class="section text-center">
+        <h2 class="title">Heroes List</h2>
+      </div>
+      <div class="row m-2">
+          <div class="col">
+                <a href="/heroes/add" class="btn btn-primary pull-right">
+                    Add Heroes
+                </a>
+          </div>
+      </div>
+      <div class="row">
+        {{#each heroes}}
+        <div class="col-3">
+          <div class="card" data-animation="true">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <a class="d-block blur-shadow-image">
+                <img src="/uploads/{{this.photo}}" style="max-width: 225px" alt="{{this.name}}" class="img-fluid shadow border-radius-lg">
+              </a>
+              <div class="colored-shadow"></div>
+            </div>
+            <div class="card-body text-center">
+              <h5 class="font-weight-normal mt-3">
+                {{this.name}}
+              </h5>
+              <p>{{this.type}}</p>
+            </div>
+            <hr class="dark horizontal my-0">
+            <div class="card-footer d-flex">
+              <div class="d-flex mt-n6 mx-auto">
+                <a href="/detail/{{this.id}}" class="btn text-primary ms-auto border-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detail">
+                  <i class="material-icons text-lg">info</i> Detail
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+{{> footer}}

@@ -1,0 +1,41 @@
+{{> head}}
+{{> navbar}}
+
+{{#if message}}
+  <div class="alert alert-{{message.type}}" role="alert">
+    {{message.message}}
+  </div>
+{{/if}}
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Edit Type</h4>
+            </div>
+            <div class="card-body">
+              <form action="/type/edit/{{types.id}}" method="POST">
+                <div class="row">
+                    <input type="hidden" name="id" value={{types.id}}>
+                  <div class="col-md-10">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Type</label>
+                      <input type="text" class="form-control" name="name" value={{types.name}}>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <button type="submit" class="btn btn-primary pull-right">Update Type</button>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{{> footer}}

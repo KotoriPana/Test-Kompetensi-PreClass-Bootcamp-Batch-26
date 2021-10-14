@@ -1,0 +1,45 @@
+{{> head}}
+{{> navbar}}
+
+{{#if message}}
+  <div class="alert alert-{{message.type}}" role="alert">
+    {{message.message}}
+  </div>
+{{/if}}
+
+    <div class="container">
+      <div class="section text-center">
+        <h2 class="title">{{heroes.name}}</h2>
+      </div>
+      <div class="row">
+          <div class="row m-2">
+            <div class="col-3">
+                <div class="row p-1">
+                    <img src="/uploads/{{heroes.photo}}" alt="{{movie.name}}" style="max-width: 400px;">
+                </div>
+                <div class="row">
+                        <a href="/heroes/edit/{{heroes.id}}" class="btn-primary btn-link">
+                          <i class="material-icons">edit</i> Edit Heroes
+                        </a>
+                </div>
+                <div class="row">
+                        <a href="/heroes/delete/{{heroes.id}}" class="btn-danger btn-link">
+                          <i class="material-icons">close</i> Delete Heroes
+                        </a>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-2">
+                        <span>Type: </span>
+                    </div>
+                    <div class="col">
+                        <span>{{heroes.type}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+{{> footer}}
